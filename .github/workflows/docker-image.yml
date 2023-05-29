@@ -25,7 +25,11 @@ jobs:
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
         
     - name: Build Docker image
-      run: docker build -t yolgerpc/docker-graphql:0.0.1 .
+      run: |
+        docker build -t yolgerpc/docker-graphql:0.0.2 .
+        docker build -t yolgerpc/docker-graphql:latest .
 
     - name: Push Docker image
-      run: docker push yolgerpc/docker-graphql:0.0.1
+      run: |
+        docker push yolgerpc/docker-graphql:0.0.2
+        docker push yolgerpc/docker-graphql:latest
